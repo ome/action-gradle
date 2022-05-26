@@ -26,6 +26,8 @@ runs:
     - name: Wrap with specified version
       run: gradle wrapper --gradle-version=${{ inputs.gradle-version }}
       if: ${{ inputs.gradle-version != '' }}
+      shell: bash
     - name: Wrap without version
       run: gradle wrapper
       if: ${{ inputs.gradle-version == '' }}
+      shell: bash
