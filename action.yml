@@ -1,0 +1,31 @@
+name: 'Install'
+description: 'Install Java & Gradle'
+inputs:
+  gradle-version:
+    description: 'Version of gradle to install'
+    required: false
+    default: 6.8.3
+  java-version:
+    description: 'Version of Java to install'
+    required: false
+    default: 11
+
+runs:
+  using: "composite"
+  steps:
+    - name: Set up JDK ${{ inputs.java-version }}
+      uses: actions/setup-java@v1
+      with:
+        java-version: ${{ inputs.java-version }}
+    - name: Cache Gradle packages
+      uses: actions/cache@v2
+      with:
+        path: ~/.gradle/caches
+        key: ${{ runner.os }}-gradle-${{ hashFiles('**/*.gradle') }}
+        restore-keys: ${{ runner.os }}-gradle
+    - name: Wrap with specified version
+      run: gradle wrapper --gradle-version=${{ inputs.gradle-version }}
+      if: ${{ inputs.gradle-version != '' }}
+    - name: Wrap without version
+      run: gradle wrapper
+      if: ${{ inputs.gradle-version == '' }}
