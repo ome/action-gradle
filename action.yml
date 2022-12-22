@@ -9,20 +9,20 @@ inputs:
     description: 'Version of Java to install'
     required: false
     default: 11
+  java-distribution:
+    description: 'The Java distribution to install'
+    required: false
+    default: 'zulu'
 
 runs:
   using: "composite"
   steps:
     - name: Set up JDK ${{ inputs.java-version }}
-      uses: actions/setup-java@v1
+      uses: actions/setup-java@v3
       with:
         java-version: ${{ inputs.java-version }}
-    - name: Cache Gradle packages
-      uses: actions/cache@v2
-      with:
-        path: ~/.gradle/caches
-        key: ${{ runner.os }}-gradle-${{ hashFiles('**/*.gradle') }}
-        restore-keys: ${{ runner.os }}-gradle
+        java-distribution: ${{ inputs.java-distribution }}
+        cache: 'gradle'
     - name: Wrap with specified version
       run: gradle wrapper --gradle-version=${{ inputs.gradle-version }}
       if: ${{ inputs.gradle-version != '' }}
