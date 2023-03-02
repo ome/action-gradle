@@ -4,7 +4,7 @@ inputs:
   gradle-version:
     description: 'Version of gradle to install'
     required: false
-    default: 6.8.3
+    default: 6.8.3  # use ``current`` to install the current stable release
   java-version:
     description: 'Version of Java to install'
     required: false
