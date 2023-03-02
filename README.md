@@ -20,7 +20,7 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - name: Install Java and Gradle
-        uses: ome/action-gradle@v2
+        uses: ome/action-gradle@v3
  ```
 
 If you wish to change the Java version, for example use Java 1.8
@@ -35,7 +35,7 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - name: Install Java and Gradle
-        uses: ome/action-gradle@v2
+        uses: ome/action-gradle@v3
         with:
           java-version: 8
  ```
