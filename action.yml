@@ -4,7 +4,7 @@ inputs:
   gradle-version:
     description: 'Version of gradle to install'
     required: false
-    default: 6.8.3
+    default: 6.8.3  # use ``current`` to install the current stable release
   java-version:
     description: 'Version of Java to install'
     required: false
@@ -23,11 +23,7 @@ runs:
         java-version: ${{ inputs.java-version }}
         java-distribution: ${{ inputs.java-distribution }}
         cache: 'gradle'
-    - name: Wrap with specified version
-      run: gradle wrapper --gradle-version=${{ inputs.gradle-version }}
-      if: ${{ inputs.gradle-version != '' }}
-      shell: bash
-    - name: Wrap without version
-      run: gradle wrapper
-      if: ${{ inputs.gradle-version == '' }}
-      shell: bash
+    - name: Set up Gradle ${{ inputs.gradle-version }}
+      uses: gradle/gradle-build-action@v2
+        with:
+          gradle-version: ${{ inputs.gradle-version }}
