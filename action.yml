@@ -25,5 +25,5 @@ runs:
         cache: 'gradle'
     - name: Set up Gradle ${{ inputs.gradle-version }}
       uses: gradle/gradle-build-action@v2
-        with:
-          gradle-version: ${{ inputs.gradle-version }}
+      with:
+        gradle-version: ${{ inputs.gradle-version }}
