@@ -21,7 +21,7 @@ runs:
       uses: actions/setup-java@v4
       with:
         java-version: ${{ inputs.java-version }}
-        java-distribution: ${{ inputs.java-distribution }}
+        distribution: ${{ inputs.java-distribution }}
         cache: 'gradle'
     - name: Set up Gradle ${{ inputs.gradle-version }}
       uses: gradle/gradle-build-action@v3
