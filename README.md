@@ -6,7 +6,7 @@ that will install:
  - Gradle (default 6.8.3)
 
 Both Java and Gradle version can be passed as a parameter.
-If an empty string is passed for the Gradle parameter, the latest version (whatever that is) of Gradle will be installed.
+If ``current`` is passed for the Gradle parameter, the latest version (whatever that is) of Gradle will be installed.
 
  To use the action in a workflow:
 
