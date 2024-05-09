@@ -18,9 +18,9 @@ jobs:
     runs-on: ubuntu-20.04
     name: A job to install Gradle and Java
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
       - name: Install Java and Gradle
-        uses: ome/action-gradle@v3.2
+        uses: ome/action-gradle@v3.3
  ```
 
 If you wish to change the Java version, for example use Java 1.8
@@ -33,9 +33,9 @@ jobs:
     runs-on: ubuntu-20.04
     name: A job to install Gradle and Java
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
       - name: Install Java and Gradle
-        uses: ome/action-gradle@v3.2
+        uses: ome/action-gradle@v3.3
         with:
           java-version: 8
  ```
