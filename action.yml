@@ -29,6 +29,6 @@ runs:
         java-package: ${{ inputs.java-package }}
         cache: 'gradle'
     - name: Set up Gradle ${{ inputs.gradle-version }}
-      uses: gradle/gradle-build-action@v3
+      uses: gradle/actions/setup-gradle@v3
       with:
         gradle-version: ${{ inputs.gradle-version }}
