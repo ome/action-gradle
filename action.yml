@@ -13,6 +13,10 @@ inputs:
     description: 'The Java distribution to install'
     required: false
     default: 'zulu'
+  java-package:
+    description: 'The Java package to install'
+    required: false
+    default: 'jdk'
 
 runs:
   using: "composite"
@@ -22,6 +26,7 @@ runs:
       with:
         java-version: ${{ inputs.java-version }}
         distribution: ${{ inputs.java-distribution }}
+        java-package: ${{ inputs.java-package }}
         cache: 'gradle'
     - name: Set up Gradle ${{ inputs.gradle-version }}
       uses: gradle/gradle-build-action@v3
