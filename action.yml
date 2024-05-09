@@ -18,12 +18,12 @@ runs:
   using: "composite"
   steps:
     - name: Set up JDK ${{ inputs.java-version }}
-      uses: actions/setup-java@v3
+      uses: actions/setup-java@v4
       with:
         java-version: ${{ inputs.java-version }}
         java-distribution: ${{ inputs.java-distribution }}
         cache: 'gradle'
     - name: Set up Gradle ${{ inputs.gradle-version }}
-      uses: gradle/gradle-build-action@v2
+      uses: gradle/gradle-build-action@v3
       with:
         gradle-version: ${{ inputs.gradle-version }}
